@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {Link, Route, BrowserRouter, Routes,} from 'react-router-dom';
 
 import App from './App';
 import Home from './components/home/home';
@@ -14,10 +15,10 @@ ReactDOM.render((
     <BrowserRouter>
         <App>
             <Routes>
-                <Route path='/' element={<Home/>} />
-                <Route path='/contacts' element={<Contacts/>} />
-                <Route path='/posts' element={<Posts/>} />
-                <Route path='/posts/:id' element={<Post/>} />
+                <Route path='/' element={<Home/>}/>
+                <Route path='/contacts' element={<Contacts/>}/>
+                <Route path='/posts' element={<Posts/>}/>
+                <Route path='/posts/:id' element={<Post/>}/>
             </Routes>
         </App>
     </BrowserRouter>

@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
+// import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
-import { RouteComponentProps } from 'react-router';
 
 interface Ipost {
     title?: string,
     id?: number,
 }
 
-type PostState = {
-    data: Ipost[],
-}
+// type PostState = {
+//     data: Ipost[],
+// }
 
-interface IPosts extends RouteComponentProps {
-    test?: number,
-}
+// interface IPosts extends RouteComponentProps {
+//     test?: number,
+// }
 
-class Posts extends Component<IPosts, PostState> {
+class Posts extends Component {
     state = {
         data: [],
     }

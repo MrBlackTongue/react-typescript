@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-import { RouteComponentProps } from 'react-router';
+import React, {Component} from 'react';
+// import { RouteComponentProps } from 'react-router';
+import { useParams } from 'react-router-dom';
+import {RouteProps} from 'react-router';
 
-type RouteParams = {
-    id: string,
-}
-
+// type RouteParams = {
+//     id: string,
+// }
+//
 interface Ipost {
     title?: string,
     body?: string,
@@ -14,26 +16,39 @@ type PostState = {
     post: Ipost,
 }
 
+interface MyProps {
+    api?: any
+}
 
-class Post extends Component<RouteComponentProps<RouteParams>, PostState> {
+interface MyState {
+    someString: string,
+    loading: boolean
+}
+
+
+class Post extends Component<MyProps & RouteProps, PostState> {
     state = {
         post: {
             title: '',
             body: '',
         },
+        params:{}
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id || '';
+        const id = this.props || '';
+        console.log(this.props)
 
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
             .then(res => res.json())
-            .then(post => { this.setState({ post }) })
+            .then(post => {
+                this.setState({post})
+            })
     }
 
     render() {
-        const { post } = this.state;
-        const { title, body } = post;
+        const {post} = this.state;
+        const {title, body} = post;
 
         return (
             <section>
